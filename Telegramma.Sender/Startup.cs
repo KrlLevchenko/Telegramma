@@ -1,3 +1,4 @@
+using Confluent.Kafka;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,11 @@ namespace Telegramma.Sender
                 .AsImplementedInterfaces()
             );
             services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
+
+            services.AddScoped(_ => new ProducerConfig
+            {
+                BootstrapServers = Configuration.GetConnectionString("Kafka"),
+            });
 
         }
 

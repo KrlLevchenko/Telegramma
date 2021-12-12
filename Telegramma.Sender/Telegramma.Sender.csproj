@@ -6,6 +6,7 @@
     </PropertyGroup>
   
     <ItemGroup>
+      <PackageReference Include="Confluent.Kafka" Version="1.8.2" />
       <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.4" />
       <PackageReference Include="Grpc.AspNetCore" Version="2.41.0" />
       <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
@@ -15,5 +16,9 @@
   
     <ItemGroup>
       <Protobuf Include="Api\Sender\SenderV1.proto" GrpcServices="Server" />
+    </ItemGroup>
+  
+    <ItemGroup>
+      <ProjectReference Include="..\Telegramma.KafkaContracts\Telegramma.KafkaContracts.csproj" />
     </ItemGroup>
 </Project>
