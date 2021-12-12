@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package Telegramma.Sender.V1;
+
+service SendMessageService {
+    rpc Send(SendMessageRequest) returns (SendMessageResponse);
+}
+
+message SendMessageRequest {
+    optional string sender_phone_number = 1;
+    optional string sender_email = 2;
+    string text = 3;
+    optional string recipient_phone_number = 4;
+    optional string recipient_email = 5;
+}
+
+message SendMessageResponse{
+    string message_id = 1;
+}
